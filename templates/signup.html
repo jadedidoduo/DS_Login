@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>Sign Up</title>
+        <link rel="stylesheet" type="text/css" href="static/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=NotoSans&Roboto&Arvo:wght@700&family=Dongle:wght@300&family=Montserrat:wght@500;700&family=Poppins:wght@600&family=Raleway:wght@500&display=swap" rel="stylesheet">
+
+        <style>
+            .popup {
+                top: 89%;
+            }
+        </style>
+
+    </head>   
+    <body>
+        <!-- LEFT CONTAINER -->
+        <div class="left_con">
+            <div class="image_con">
+                <div class="logo_con">
+                    <img src="static/images/pup_logo.png">
+                </div>
+            </div>
+        </div>
+        <!-- RIGHT CONTAINER -->
+        <div class="right_con">
+            <div class="login_con">
+                <div class="app_logo_con">
+                    <div class="app_logo"> <!--logo natinnn-->
+                        <img src="static/images/pup_logo.png">
+                    </div>
+                </div>
+                <div class="form">
+                    <div class="form_title">Sign up to AppName</div>
+                    <form action="/signup" method="post">
+                        <div>
+                            <h5>Username</h5>
+                            <input name="username" class="input" type="text" required>
+                        </div>
+                        <div>
+                            <h5>Email</h5>
+                            <input class="input" name="email" type="text" required>
+                        </div>
+                        <div>
+                            <h5>Password</h5>
+                            <input class="input" name="password" type="password" required>
+                        </div>
+                        <button type="submit" class="signup" style="margin-top: 20px;"style="color:#800000">sign up</button>
+                        <div style="display: flex; justify-content: center;">
+                            <h5 style="font-weight: lighter; margin-left: 0;">Already have an account?&nbsp;<a href="/" style="color: #800000; font-size: 12px; text-decoration: underline; font-weight: bold;">back to login</a></h5>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!---ERROR PROMPT-->
+        <div id="errorPopup" class="popup"></div>
+
+        <!-- FOOTER -->
+        <div class="footer_con">groupone@pup.edu.ph</div>
+
+        <script>
+            function showError(message) {
+                var popup = document.getElementById("errorPopup");
+                popup.innerHTML = "<p>" + message + "</p>";
+                popup.style.display = "block";
+                setTimeout(function() {
+                    popup.style.display = "none";
+                }, 5000); 
+            }
+        </script>
+        
+        {% if error %}
+            <script>showError('{{ error }}');</script>
+        {% endif %}
+        
+    
+    </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>Login</title>
+        <link rel="stylesheet" type="text/css"  href="static/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=NotoSans&Roboto&Arvo:wght@700&family=Dongle:wght@300&family=Montserrat:wght@500;700&family=Poppins:wght@600&family=Raleway:wght@500&display=swap" rel="stylesheet">
+
+    </head>   
+    <body>
+        <!-- LEFT CONTAINER -->
+        <div class="left_con">
+            <div class="image_con">
+                <div class="logo_con">
+                    <img src="static/images/pup_logo.png">
+                </div>
+            </div>
+        </div>
+        <!-- RIGHT CONTAINER -->
+        <div class="right_con">
+            <div class="login_con">
+                <div class="app_logo_con">
+                    <div class="app_logo"> <!--logo natinnn-->
+                        <img src="static/images/pup_logo.png" style="padding-top: 30px;">
+                    </div>
+                </div>
+                <div class="form">
+                    <div class="form_title">Login to AppName</div>
+                    <form action="/" method="post">
+                        <div>
+                            <h5>Username</h5>
+                            <input name="username" class="input" type="text" required>
+                        </div>
+                        <div>
+                            <h5>Password</h5>
+                            <input class="input" name="password" type="password" required>
+                        </div>
+                        <button type="submit" class="login" style="color: white;">login</button>
+                        <button class="signup"><a href="/signup" style="color:#800000">sign up</a></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!---ERROR PROMPT-->
+        <div id="errorPopup" class="popup"></div>
+
+        <!-- FOOTER -->
+        <div class="footer_con">groupone@pup.edu.ph</div>
+
+        <script>
+            function showError(message) {
+                var popup = document.getElementById("errorPopup");
+                popup.innerHTML = "<p>" + message + "</p>";
+                popup.style.display = "block";
+                setTimeout(function() {
+                    popup.style.display = "none";
+                }, 5000); 
+            }
+        </script>
+        
+        {% if error %}
+            <script>showError('{{ error }}');</script>
+        {% endif %}
+    
+    </body>
+</html>
